@@ -10,15 +10,15 @@ function LostItemsInsertForm(props) {
         foundDate: "",
         foundLocation: ""
     });
-    // const resetForm = () => {
-    //     props.setNewLostItem({
-    //         name: "",
-    //         description: "",
-    //         lostDate: "",
-    //         location: ""
-    //     })
-    //     //props.setEdit(0);
-    // }
+    const resetForm = () => {
+        setNewLostItem({
+            name: "",
+            description: "",
+            lostDate: "",
+            location: ""
+        })
+        //props.setEdit(0);
+    }
     const changeName = (event) => {
         setNewLostItem({
             ...newLostItem,
@@ -85,7 +85,8 @@ function LostItemsInsertForm(props) {
                     onChange={changeLocation}
                 />
             </div>
-            <button type="submit" className="btn btn-primary">Inserisci</button>
+            <button type="submit" className="mx-1 mb-1 btn btn-primary">Inserisci</button>
+            <button type="button" className="mx-1 mb-1 btn btn-info" onClick={resetForm}>Reset</button>
         </form>
     )
 }

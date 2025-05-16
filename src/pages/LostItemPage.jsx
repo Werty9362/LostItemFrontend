@@ -21,8 +21,8 @@ function LostItemPage() {
     const [edit, setEdit] = useState(0);
 
     const loadLostItems = () => {
-        if(found !== ""){
-            url +="/" + found;
+        if (found !== "") {
+            url += "/" + found;
         }
         axios.get(url)
             .then(response => setLostItems(response.data))
@@ -84,27 +84,30 @@ function LostItemPage() {
 
     return (
         <>
-            <Title
-                labelH1="Oggetti Persi"
-            />
-            {
-                edit ? <LostItemsEditForm onUpdateLostItem={updateLostItem} /> : <LostItemsInsertForm onAddLostItem={addLostItem} />
-            }
-            <form className="mb-3">
-                <label htmlFor="filter"> Filtra per:</label>
-                <select className="form-select" id="filter" value={found} onChange={(event) => setFound(event.target.value)}>
-                    <option value="">Tutti</option>
-                    <option value="0">Non trovato</option>
-                    <option value="1">Trovato</option>
-                </select>
-            </form>
+            <div class="container con-color">
+                <Title
+                    labelH1="Oggetti Persi"
+                />
+                {
+                    edit ? <LostItemsEditForm onUpdateLostItem={updateLostItem} /> : <LostItemsInsertForm onAddLostItem={addLostItem} />
+                }
+                <form className="mb-3">
+                    <label htmlFor="filter"> Filtra per:</label>
+                    <select className="form-select" id="filter" value={found} onChange={(event) => setFound(event.target.value)}>
+                        <option value="">Tutti</option>
+                        <option value="0">Non trovato</option>
+                        <option value="1">Trovato</option>
+                    </select>
+                </form>
 
-            <LostItemsTable
-                data={lostItems}
-                onDeleteLostItem={deleteLostItem}
-                onEditLostItem={editLostItem}
-                found = {found}
-            />
+                <LostItemsTable
+                    data={lostItems}
+                    onDeleteLostItem={deleteLostItem}
+                    onEditLostItem={editLostItem}
+                    found={found}
+                />
+            </div>
+
         </>
     )
 }

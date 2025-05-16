@@ -1,6 +1,6 @@
 function LostItemsTable(props) {
     return (
-        <table className="table table-striped">
+        <table className="table table-primary table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -30,10 +30,10 @@ function LostItemsTable(props) {
                                 <td>{lostItem.foundDate}</td>
                                 <td>{lostItem.foundLocation}</td>
                                 <td>
-                                    <button type="button" className="btn btn-danger" onClick={() => props.onDeleteLostItem(lostItem)}>Elimina</button>
+                                    <button type="button" className="btn btn-warning" onClick={() => props.onEditLostItem(lostItem)}>Modifica</button>
                                 </td>
                                 <td>
-                                    <button type="button" className="btn btn-warning" onClick={() => props.onEditLostItem(lostItem)}>Modifica</button>
+                                    <button type="button" className="btn btn-danger" onClick={() => props.onDeleteLostItem(lostItem)}>Elimina</button>
                                 </td>
                             </tr>
                         )
